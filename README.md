@@ -21,6 +21,7 @@ Objectif : aligner trois symboles horizontalement, verticalement ou diagonalemen
 
 🤖 Niveaux d’IA
 Fichier	Description
+
 main.py	🟢 IA simple : joue de façon basique
 main1.py	🟡 IA intelligente : prend de meilleures décisions
 main2.py	🔴 IA avec Minimax : joue de manière optimale
