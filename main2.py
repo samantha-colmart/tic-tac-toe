@@ -17,8 +17,8 @@ def victoire(board, s):
     return any(board[a] == board[b] == board[c] == s for a,b,c in combinaisons)
 
 def minimax(board, joueur):
-    # IA = O
-    # Humain = X
+    # ia = O
+    # humain = X
 
     if victoire(board, "O"):
         return 1

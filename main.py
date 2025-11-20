@@ -38,16 +38,23 @@ def jouer():
                 print("Case déjà occupée !")
                 continue
         else:
+            if " " not in board[1:]:
+                afficher (board)
+                print("Match nul !")
+                break
+
             print("L’IA joue...")
             case = ia_aleatoire(board)
 
         board[case] = joueur
 
         if victoire(board, joueur):
+            afficher(board)
             print("Le joueur", joueur, "a gagné !")
             break
 
-        if " " not in board:
+        if " " not in board[1:]:
+            afficher(board)
             print("Match nul !")
             break
 

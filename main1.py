@@ -13,12 +13,8 @@ def victoire(board, s):
         (1,4,7), (2,5,8), (3,6,9),
         (1,5,9), (3,5,7)
     ]
-    for a,b,c in combinaisons:
-        if board[a] == board[b] == board[c] == s:
-            return True
-    return False
+    return any(board[a] == board[b] == board[c] == s for a,b,c in combinaisons)
 
-# ia intelligente
 def ia_intelligente(board):
     coups_possibles = [i for i in range(1, 10) if board[i] == " "]
     
@@ -28,6 +24,7 @@ def ia_intelligente(board):
     for i in coups_possibles:
         board[i] = "O"
         if victoire(board, "O"):
+            board[i] = " "
             return i
         board[i] = " "
 
@@ -52,10 +49,18 @@ def jouer():
             if board[case] != " ":
                 print("Case déjà occupée !")
                 continue
+
         else:
+
+            if " " not in board[1:]:
+                afficher(board)
+                print("Match nul !")
+                break
+
             print("L’IA joue...")
             case = ia_intelligente(board)
-            if case is None:  # plus de coups possibles
+            if case is None:
+                afficher(board)
                 print("Match nul !")
                 break
 
